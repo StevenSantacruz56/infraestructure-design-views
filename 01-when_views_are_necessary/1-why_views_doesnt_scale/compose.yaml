@@ -1,0 +1,10 @@
+services:
+  test_view_pg_rrss_database_1:
+    image: "postgres:15-alpine"
+    restart: unless-stopped
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_PASSWORD=test_view
+    volumes:
+      - ./database/1-base.sql:/docker-entrypoint-initdb.d/00_init_db.sql
